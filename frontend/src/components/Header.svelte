@@ -39,10 +39,12 @@
 <style>
   header {
     background: var(--surface);
-    border-bottom: 1px solid var(--border);
+    border-bottom: 2px solid var(--border);
     position: sticky;
     top: 0;
     z-index: 100;
+    box-shadow: 0 2px 12px rgba(8, 145, 178, 0.08);
+    backdrop-filter: blur(8px);
   }
 
   .header-content {
@@ -53,14 +55,22 @@
   }
 
   .logo h1 {
-    font-size: 1.25rem;
+    font-size: 1.375rem;
     font-weight: 700;
     color: var(--text);
+    letter-spacing: -0.01em;
   }
 
   .logo p {
     font-size: 0.875rem;
     color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  .logo :global(a:focus-visible) {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 4px;
+    border-radius: 4px;
   }
 
   .mobile-toggle {
@@ -84,13 +94,27 @@
 
   nav :global(a) {
     color: var(--text-secondary);
-    font-weight: 500;
-    transition: color 0.2s;
+    font-weight: 600;
+    font-family: 'Lexend', sans-serif;
+    transition: all 0.2s ease;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    position: relative;
   }
 
-  nav :global(a:hover),
+  nav :global(a:hover) {
+    color: var(--primary);
+    background: rgba(8, 145, 178, 0.08);
+  }
+
   nav :global(a.active) {
     color: var(--primary);
+    background: rgba(8, 145, 178, 0.12);
+  }
+
+  nav :global(a:focus-visible) {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 2px;
   }
 
   @media (max-width: 768px) {

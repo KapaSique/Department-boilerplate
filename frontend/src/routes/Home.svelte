@@ -82,54 +82,94 @@
   .hero {
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     color: white;
-    padding: 4rem 0;
+    padding: 5rem 0;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(34, 211, 238, 0.2) 0%, transparent 50%);
+    pointer-events: none;
   }
 
   .hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 2.75rem;
+    margin-bottom: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    position: relative;
   }
 
   .hero p {
-    font-size: 1.25rem;
-    opacity: 0.9;
+    font-size: 1.375rem;
+    opacity: 0.95;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+    position: relative;
   }
 
   .feature {
     text-align: center;
+    transition: transform 0.25s ease;
+  }
+
+  .feature:hover {
+    transform: translateY(-4px);
   }
 
   .icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-size: 3.5rem;
+    margin-bottom: 1.25rem;
+    filter: drop-shadow(0 2px 8px rgba(8, 145, 178, 0.15));
   }
 
   .feature h3 {
     font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--text);
+    font-weight: 600;
   }
 
   .feature p {
     color: var(--text-secondary);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .news-card {
+    transition: all 0.25s ease;
+  }
+
+  .news-card:hover {
+    border-color: var(--secondary);
   }
 
   .news-card h3 {
     font-size: 1.25rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
     color: var(--text);
+    font-weight: 600;
+    line-height: 1.4;
   }
 
   .date {
     font-size: 0.875rem;
     color: var(--text-secondary);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
   }
 
   .excerpt {
     color: var(--text-secondary);
-    line-height: 1.6;
+    line-height: 1.7;
   }
 
   @media (max-width: 768px) {
