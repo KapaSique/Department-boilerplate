@@ -32,17 +32,28 @@
 - Бизнес-метрики (посещения, популярные страницы)
 - Database метрики
 
-## Запуск
+## Быстрый старт
 
 ```bash
+# Запустить все сервисы
+make up
+
+# Или через docker-compose
 docker-compose up -d
 ```
+
+После запуска доступны:
+- **Frontend**: http://localhost:3000
+- **Backend API**: http://localhost:8080
+- **Prometheus**: http://localhost:9090
+- **Grafana**: http://localhost:3001 (admin/admin)
 
 ## Разработка
 
 ### Backend
 ```bash
 cd backend
+go mod download
 go run cmd/server/main.go
 ```
 
@@ -51,4 +62,25 @@ go run cmd/server/main.go
 cd frontend
 npm install
 npm run dev
+```
+
+### Только мониторинг
+```bash
+make dev
+```
+
+## Инициализация базы данных
+
+```bash
+docker exec -i finance-dept-db psql -U postgres -d finance_dept < backend/init.sql
+```
+
+## Полезные команды
+
+```bash
+make help    # Показать все команды
+make build   # Собрать Docker образы
+make down    # Остановить сервисы
+make logs    # Просмотр логов
+make clean   # Очистить volumes
 ```
