@@ -2,10 +2,16 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
+# Copy package files
 COPY package*.json ./
-RUN npm install
 
+# Install dependencies with clean install and ignore scripts to avoid ETXTBSY
+RUN npm ci --ignore-scripts && npm rebuild esbuild
+
+# Copy source files
 COPY . .
+
+# Build application
 RUN npm run build
 
 FROM nginx:alpine
