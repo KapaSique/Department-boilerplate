@@ -60,23 +60,30 @@
 
 ## 🚀 Быстрый старт
 
-### Требования
-
-- Docker 20.10+
-- Docker Compose 2.0+
-- Git
-
-### Установка
+### Автоматический запуск (рекомендуется)
 
 ```bash
 # Клонировать репозиторий
 git clone https://github.com/KapaSique/Department-boilerplate.git
 cd Department-boilerplate
 
-# Запустить все сервисы
+# Запустить Docker Desktop, затем:
+./test.sh
+```
+
+Скрипт автоматически соберет, запустит и протестирует все сервисы.
+
+### Ручной запуск
+
+```bash
+# Клонировать
+git clone https://github.com/KapaSique/Department-boilerplate.git
+cd Department-boilerplate
+
+# Запустить
 make up
 
-# Инициализировать базу данных
+# Инициализировать БД
 docker exec -i finance-dept-db psql -U postgres -d finance_dept < backend/init.sql
 ```
 
