@@ -5,8 +5,8 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies with clean install and ignore scripts to avoid ETXTBSY
-RUN npm ci --ignore-scripts && npm rebuild esbuild
+# Install dependencies
+RUN npm install --legacy-peer-deps
 
 # Copy source files
 COPY . .
